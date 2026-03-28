@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A6070"/>
+    </marker>
+    <marker id="hollow" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto">
+      <polygon points="0 0, 11 5, 0 10" fill="#0A0E14" stroke="#00AACC" stroke-width="1.5"/>
+    </marker>
+    <marker id="hollow-gray" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto">
+      <polygon points="0 0, 11 5, 0 10" fill="#0A0E14" stroke="#4A6070" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#0A0E14"/>
+
+  <!-- Title -->
+  <text x="600" y="36" text-anchor="middle" font-family="Consolas,monospace" font-size="18" font-weight="bold" fill="#00D4FF">ER-Triage System — UML Class Diagram</text>
+  <text x="600" y="54" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#4A6070">Emergency Room Patient Triage &amp; Queue Management  |  Java OOP Project</text>
+  <line x1="80" y1="62" x2="1120" y2="62" stroke="#1E2D45" stroke-width="1"/>
+
+  <!-- ═══════════════════════════════════════════
+       PATIENT (abstract) — centre top
+  ══════════════════════════════════════════════ -->
+  <rect x="430" y="75" width="340" height="228" rx="4" fill="#141C2B" stroke="#00D4FF" stroke-width="2"/>
+  <rect x="430" y="75" width="340" height="38" rx="4" fill="#0D2440" stroke="#00D4FF" stroke-width="0"/>
+  <rect x="430" y="109" width="340" height="2" fill="#00D4FF"/>
+  <text x="600" y="98" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#00D4FF">«abstract»  Patient</text>
+  <!-- Fields -->
+  <text x="444" y="126" font-family="Consolas" font-size="10" fill="#8899AA">- patientId : String  {final, UUID}</text>
+  <text x="444" y="142" font-family="Consolas" font-size="10" fill="#8899AA">- name : String</text>
+  <text x="444" y="158" font-family="Consolas" font-size="10" fill="#8899AA">- age : int</text>
+  <text x="444" y="174" font-family="Consolas" font-size="10" fill="#8899AA">- bloodType : String</text>
+  <text x="444" y="190" font-family="Consolas" font-size="10" fill="#8899AA">- triageLevel : TriageLevel</text>
+  <text x="444" y="206" font-family="Consolas" font-size="10" fill="#8899AA">- arrivalTime : LocalDateTime  {final}</text>
+  <text x="444" y="222" font-family="Consolas" font-size="10" fill="#8899AA">- status : PatientStatus</text>
+  <rect x="430" y="230" width="340" height="2" fill="#1E2D45"/>
+  <!-- Methods -->
+  <text x="444" y="246" font-family="Consolas" font-size="10" fill="#C8D8E8" font-style="italic">+ «abstract» assessTriageLevel() : TriageLevel</text>
+  <text x="444" y="262" font-family="Consolas" font-size="10" fill="#C8D8E8" font-style="italic">+ «abstract» getClinicalSummary() : String</text>
+  <text x="444" y="278" font-family="Consolas" font-size="10" fill="#C8D8E8">+ compareTo(Patient) : int</text>
+  <text x="444" y="294" font-family="Consolas" font-size="10" fill="#5D7A8A">+ getters / setters</text>
+
+  <!-- ═══════════════════════════════════════════
+       TriageLevel (enum)
+  ══════════════════════════════════════════════ -->
+  <rect x="840" y="75" width="260" height="175" rx="4" fill="#141C2B" stroke="#3B8BFF" stroke-width="1.5"/>
+  <rect x="840" y="75" width="260" height="34" rx="4" fill="#0A1230" stroke="#3B8BFF" stroke-width="0"/>
+  <rect x="840" y="105" width="260" height="2" fill="#3B8BFF"/>
+  <text x="970" y="96" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#3B8BFF">«enumeration»  TriageLevel</text>
+  <text x="854" y="122" font-family="Consolas" font-size="10" fill="#FF3B3B">RESUSCITATION  (priority=1)</text>
+  <text x="854" y="138" font-family="Consolas" font-size="10" fill="#FF8C00">EMERGENT       (priority=2)</text>
+  <text x="854" y="154" font-family="Consolas" font-size="10" fill="#3B8BFF">URGENT         (priority=3)</text>
+  <text x="854" y="170" font-family="Consolas" font-size="10" fill="#00C851">LESS_URGENT    (priority=4)</text>
+  <text x="854" y="186" font-family="Consolas" font-size="10" fill="#8899AA">NON_URGENT     (priority=5)</text>
+  <rect x="840" y="195" width="260" height="2" fill="#1E2D45"/>
+  <text x="854" y="211" font-family="Consolas" font-size="10" fill="#C8D8E8">+ getPriority() : int</text>
+  <text x="854" y="227" font-family="Consolas" font-size="10" fill="#C8D8E8">+ getDescription() : String</text>
+
+  <!-- PatientStatus (inner enum) -->
+  <rect x="840" y="268" width="260" height="100" rx="4" fill="#141C2B" stroke="#5D7A8A" stroke-width="1"/>
+  <rect x="840" y="268" width="260" height="30" rx="4" fill="#0F1825" stroke="#5D7A8A" stroke-width="0"/>
+  <rect x="840" y="294" width="260" height="1.5" fill="#5D7A8A"/>
+  <text x="970" y="288" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#5D7A8A">«inner enum»  PatientStatus</text>
+  <text x="854" y="312" font-family="Consolas" font-size="10" fill="#8899AA">WAITING  |  IN_TREATMENT</text>
+  <text x="854" y="328" font-family="Consolas" font-size="10" fill="#8899AA">DISCHARGED  |  TRANSFERRED</text>
+  <text x="854" y="346" font-family="Consolas" font-size="10" fill="#5D7A8A">«defined inside Patient»</text>
+
+  <!-- TriageLevel uses arrow from Patient -->
+  <line x1="770" y1="160" x2="838" y2="160" stroke="#4A6070" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="798" y="154" font-family="Arial" font-size="9" fill="#4A6070">uses</text>
+
+  <!-- ═══════════════════════════════════════════
+       GeneralPatient
+  ══════════════════════════════════════════════ -->
+  <rect x="30" y="420" width="290" height="210" rx="4" fill="#141C2B" stroke="#00C851" stroke-width="1.5"/>
+  <rect x="30" y="420" width="290" height="34" rx="4" fill="#0A1A10" stroke="#00C851" stroke-width="0"/>
+  <rect x="30" y="450" width="290" height="2" fill="#00C851"/>
+  <text x="175" y="441" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#00C851">GeneralPatient</text>
+  <text x="44" y="468" font-family="Consolas" font-size="10" fill="#8899AA">- chiefComplaint : String</text>
+  <text x="44" y="484" font-family="Consolas" font-size="10" fill="#8899AA">- painScale : int  {0-10}</text>
+  <text x="44" y="500" font-family="Consolas" font-size="10" fill="#8899AA">- temperature : double  {°C}</text>
+  <text x="44" y="516" font-family="Consolas" font-size="10" fill="#8899AA">- respiratoryRate : int  {/min}</text>
+  <rect x="30" y="524" width="290" height="2" fill="#1E2D45"/>
+  <text x="44" y="540" font-family="Consolas" font-size="10" fill="#C8D8E8">+ assessTriageLevel() : TriageLevel</text>
+  <text x="44" y="556" font-family="Consolas" font-size="10" fill="#C8D8E8">+ getClinicalSummary() : String</text>
+  <text x="44" y="580" font-family="Consolas" font-size="9" fill="#2A7A3A">  RR&lt;8 or &gt;30 or temp&gt;40.5 → ESI-1</text>
+  <text x="44" y="594" font-family="Consolas" font-size="9" fill="#2A7A3A">  pain≥8 or temp&gt;39.5 → ESI-2</text>
+  <text x="44" y="608" font-family="Consolas" font-size="9" fill="#2A7A3A">  pain≥5 or temp&gt;38.5 → ESI-3</text>
+  <text x="44" y="622" font-family="Consolas" font-size="9" fill="#2A7A3A">  pain≥3 → ESI-4  |  else → ESI-5</text>
+
+  <!-- ═══════════════════════════════════════════
+       TraumaPatient
+  ══════════════════════════════════════════════ -->
+  <rect x="455" y="420" width="290" height="210" rx="4" fill="#141C2B" stroke="#FF8C00" stroke-width="1.5"/>
+  <rect x="455" y="420" width="290" height="34" rx="4" fill="#1A0E00" stroke="#FF8C00" stroke-width="0"/>
+  <rect x="455" y="450" width="290" height="2" fill="#FF8C00"/>
+  <text x="600" y="441" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#FF8C00">TraumaPatient</text>
+  <text x="469" y="468" font-family="Consolas" font-size="10" fill="#8899AA">- injuryType : String</text>
+  <text x="469" y="484" font-family="Consolas" font-size="10" fill="#8899AA">- glasgowComaScale : int  {3-15}</text>
+  <text x="469" y="500" font-family="Consolas" font-size="10" fill="#8899AA">- isConscious : boolean</text>
+  <text x="469" y="516" font-family="Consolas" font-size="10" fill="#8899AA">- hasInternalBleeding : boolean</text>
+  <rect x="455" y="524" width="290" height="2" fill="#1E2D45"/>
+  <text x="469" y="540" font-family="Consolas" font-size="10" fill="#C8D8E8">+ assessTriageLevel() : TriageLevel</text>
+  <text x="469" y="556" font-family="Consolas" font-size="10" fill="#C8D8E8">+ getClinicalSummary() : String</text>
+  <text x="469" y="580" font-family="Consolas" font-size="9" fill="#7A4A00">  !conscious or GCS≤8 → ESI-1</text>
+  <text x="469" y="594" font-family="Consolas" font-size="9" fill="#7A4A00">  bleeding or GCS≤12 → ESI-2</text>
+  <text x="469" y="608" font-family="Consolas" font-size="9" fill="#7A4A00">  GCS≤14 → ESI-3  |  else → ESI-4</text>
+
+  <!-- ═══════════════════════════════════════════
+       CardiacPatient
+  ══════════════════════════════════════════════ -->
+  <rect x="880" y="420" width="290" height="210" rx="4" fill="#141C2B" stroke="#FF3B3B" stroke-width="1.5"/>
+  <rect x="880" y="420" width="290" height="34" rx="4" fill="#1A0808" stroke="#FF3B3B" stroke-width="0"/>
+  <rect x="880" y="450" width="290" height="2" fill="#FF3B3B"/>
+  <text x="1025" y="441" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#FF3B3B">CardiacPatient</text>
+  <text x="894" y="468" font-family="Consolas" font-size="10" fill="#8899AA">- heartRate : int  {bpm}</text>
+  <text x="894" y="484" font-family="Consolas" font-size="10" fill="#8899AA">- systolicBP : int  {mmHg}</text>
+  <text x="894" y="500" font-family="Consolas" font-size="10" fill="#8899AA">- chestPain : boolean</text>
+  <text x="894" y="516" font-family="Consolas" font-size="10" fill="#8899AA">- stElevation : boolean  {STEMI}</text>
+  <rect x="880" y="524" width="290" height="2" fill="#1E2D45"/>
+  <text x="894" y="540" font-family="Consolas" font-size="10" fill="#C8D8E8">+ assessTriageLevel() : TriageLevel</text>
+  <text x="894" y="556" font-family="Consolas" font-size="10" fill="#C8D8E8">+ getClinicalSummary() : String</text>
+  <text x="894" y="580" font-family="Consolas" font-size="9" fill="#7A1A1A">  STEMI or BP&lt;80 or HR&gt;150 → ESI-1</text>
+  <text x="894" y="594" font-family="Consolas" font-size="9" fill="#7A1A1A">  chestPain+HR&gt;120 → ESI-2</text>
+  <text x="894" y="608" font-family="Consolas" font-size="9" fill="#7A1A1A">  chestPain → ESI-3  |  else → ESI-4</text>
+
+  <!-- ═══════════════════════════════════════════
+       Inheritance arrows (hollow triangle heads)
+  ══════════════════════════════════════════════ -->
+  <!-- GeneralPatient → Patient -->
+  <line x1="175" y1="420" x2="480" y2="303" stroke="#00C851" stroke-width="1.5" stroke-dasharray="7,3" marker-end="url(#hollow)"/>
+  <!-- TraumaPatient → Patient -->
+  <line x1="600" y1="420" x2="600" y2="303" stroke="#FF8C00" stroke-width="1.5" stroke-dasharray="7,3" marker-end="url(#hollow)"/>
+  <!-- CardiacPatient → Patient -->
+  <line x1="1025" y1="420" x2="720" y2="303" stroke="#FF3B3B" stroke-width="1.5" stroke-dasharray="7,3" marker-end="url(#hollow)"/>
+
+  <!-- ═══════════════════════════════════════════
+       TriageService
+  ══════════════════════════════════════════════ -->
+  <rect x="30" y="680" width="340" height="200" rx="4" fill="#141C2B" stroke="#00D4FF" stroke-width="1.5"/>
+  <rect x="30" y="680" width="340" height="34" rx="4" fill="#0D1E30" stroke="#00D4FF" stroke-width="0"/>
+  <rect x="30" y="710" width="340" height="2" fill="#00D4FF"/>
+  <text x="200" y="701" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#00D4FF">TriageService</text>
+  <text x="44" y="726" font-family="Consolas" font-size="10" fill="#8899AA">- waitingQueue : PriorityQueue&lt;Patient&gt;</text>
+  <text x="44" y="742" font-family="Consolas" font-size="10" fill="#8899AA">- patientRegistry : Map&lt;String, Patient&gt;</text>
+  <text x="44" y="758" font-family="Consolas" font-size="10" fill="#8899AA">- allPatients : List&lt;Patient&gt;</text>
+  <rect x="30" y="765" width="340" height="2" fill="#1E2D45"/>
+  <text x="44" y="781" font-family="Consolas" font-size="10" fill="#C8D8E8">+ admitPatient(Patient) : void</text>
+  <text x="44" y="797" font-family="Consolas" font-size="10" fill="#C8D8E8">+ callNextPatient() : Patient</text>
+  <text x="44" y="813" font-family="Consolas" font-size="10" fill="#C8D8E8">+ dischargePatient(id) : void</text>
+  <text x="44" y="829" font-family="Consolas" font-size="10" fill="#C8D8E8">+ findPatient(id) : Patient</text>
+  <text x="44" y="845" font-family="Consolas" font-size="10" fill="#C8D8E8">+ getWaitingPatients() : List&lt;Patient&gt;</text>
+  <text x="44" y="861" font-family="Consolas" font-size="10" fill="#C8D8E8">+ getTriageLevelStats() : Map</text>
+
+  <!-- ═══════════════════════════════════════════
+       FileService
+  ══════════════════════════════════════════════ -->
+  <rect x="410" y="680" width="300" height="165" rx="4" fill="#141C2B" stroke="#00C851" stroke-width="1.5"/>
+  <rect x="410" y="680" width="300" height="34" rx="4" fill="#0A1810" stroke="#00C851" stroke-width="0"/>
+  <rect x="410" y="710" width="300" height="2" fill="#00C851"/>
+  <text x="560" y="701" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#00C851">FileService</text>
+  <text x="424" y="726" font-family="Consolas" font-size="10" fill="#8899AA">- RECORDS_DIR : String = "records"</text>
+  <text x="424" y="742" font-family="Consolas" font-size="10" fill="#8899AA">- LOG_FILE : String  {er_log.txt}</text>
+  <rect x="410" y="750" width="300" height="2" fill="#1E2D45"/>
+  <text x="424" y="766" font-family="Consolas" font-size="10" fill="#C8D8E8">+ logActivity(msg) : void</text>
+  <text x="424" y="782" font-family="Consolas" font-size="10" fill="#C8D8E8">+ exportPatientsToCSV(list, name)</text>
+  <text x="424" y="798" font-family="Consolas" font-size="10" fill="#C8D8E8">+ readRecentLog(n) : String</text>
+  <text x="424" y="828" font-family="Consolas" font-size="9" fill="#4A6070">  FileWriter + BufferedWriter (append)</text>
+  <text x="424" y="842" font-family="Consolas" font-size="9" fill="#4A6070">  PrintWriter for CSV</text>
+
+  <!-- ═══════════════════════════════════════════
+       ERMonitorThread
+  ══════════════════════════════════════════════ -->
+  <rect x="740" y="680" width="300" height="175" rx="4" fill="#141C2B" stroke="#FF8C00" stroke-width="1.5"/>
+  <rect x="740" y="680" width="300" height="34" rx="4" fill="#1A0E00" stroke="#FF8C00" stroke-width="0"/>
+  <rect x="740" y="710" width="300" height="2" fill="#FF8C00"/>
+  <text x="890" y="693" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#FF8C00">ERMonitorThread</text>
+  <text x="890" y="707" text-anchor="middle" font-family="Arial" font-size="9" fill="#7A4A00">«implements Runnable»</text>
+  <text x="754" y="726" font-family="Consolas" font-size="10" fill="#8899AA">- triageService : TriageService</text>
+  <text x="754" y="742" font-family="Consolas" font-size="10" fill="#8899AA">- fileService : FileService</text>
+  <text x="754" y="758" font-family="Consolas" font-size="10" fill="#FF3B3B">- volatile running : boolean</text>
+  <rect x="740" y="764" width="300" height="2" fill="#1E2D45"/>
+  <text x="754" y="780" font-family="Consolas" font-size="10" fill="#C8D8E8">+ run() : void</text>
+  <text x="754" y="796" font-family="Consolas" font-size="10" fill="#C8D8E8">+ stop() : void</text>
+  <text x="754" y="820" font-family="Consolas" font-size="9" fill="#4A6070">  Checks every 5 seconds</text>
+  <text x="754" y="834" font-family="Consolas" font-size="9" fill="#4A6070">  ESI-1 &gt;120s alert | ESI-2 &gt;300s alert</text>
+  <text x="754" y="848" font-family="Consolas" font-size="9" fill="#4A6070">  Daemon thread — auto-stops on exit</text>
+
+  <!-- ═══════════════════════════════════════════
+       Dependency arrows (dashed)
+  ══════════════════════════════════════════════ -->
+  <!-- TriageService → Patient (aggregates) -->
+  <line x1="200" y1="680" x2="480" y2="310" stroke="#4A6070" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="290" y="500" font-family="Arial" font-size="9" fill="#4A6070">manages</text>
+
+  <!-- ERMonitorThread → TriageService -->
+  <line x1="740" y1="760" x2="370" y2="780" stroke="#4A6070" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+
+  <!-- ERMonitorThread → FileService -->
+  <line x1="740" y1="730" x2="710" y2="730" stroke="#4A6070" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+
+  <!-- ═══════════════════════════════════════════
+       InputValidator (utility)
+  ══════════════════════════════════════════════ -->
+  <rect x="1060" y="680" width="120" height="110" rx="4" fill="#141C2B" stroke="#5D7A8A" stroke-width="1"/>
+  <rect x="1060" y="680" width="120" height="30" rx="4" fill="#0F1825" stroke="#5D7A8A" stroke-width="0"/>
+  <rect x="1060" y="706" width="120" height="1.5" fill="#5D7A8A"/>
+  <text x="1120" y="699" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#5D7A8A">InputValidator</text>
+  <text x="1120" y="715" text-anchor="middle" font-family="Arial" font-size="8" fill="#4A6070">«utility»</text>
+  <text x="1074" y="730" font-family="Consolas" font-size="8.5" fill="#8899AA">+validateAge()</text>
+  <text x="1074" y="744" font-family="Consolas" font-size="8.5" fill="#8899AA">+validatePain()</text>
+  <text x="1074" y="758" font-family="Consolas" font-size="8.5" fill="#8899AA">+validateBlood()</text>
+  <text x="1074" y="772" font-family="Consolas" font-size="8.5" fill="#8899AA">+validateGCS()</text>
+  <text x="1074" y="786" font-family="Consolas" font-size="8.5" fill="#8899AA">all static</text>
+
+  <!-- ═══════════════════════════════════════════
+       Exception classes (compact)
+  ══════════════════════════════════════════════ -->
+  <rect x="100" y="390" width="80" height="22" rx="3" fill="#1A0808" stroke="#FF3B3B" stroke-width="1"/>
+  <text x="140" y="405" text-anchor="middle" font-family="Arial" font-size="8" fill="#FF5555">PatientNotFound</text>
+
+  <rect x="186" y="390" width="88" height="22" rx="3" fill="#1A0808" stroke="#FF3B3B" stroke-width="1"/>
+  <text x="230" y="405" text-anchor="middle" font-family="Arial" font-size="8" fill="#FF5555">DuplicatePatient</text>
+
+  <rect x="280" y="390" width="95" height="22" rx="3" fill="#1A1200" stroke="#FF8C00" stroke-width="1"/>
+  <text x="327" y="405" text-anchor="middle" font-family="Arial" font-size="8" fill="#FF9933">InvalidTriageData</text>
+
+  <text x="80" y="385" font-family="Arial" font-size="8" fill="#4A6070">«exception»</text>
+
+  <!-- ═══════════════════════════════════════════
+       LEGEND — top left
+  ══════════════════════════════════════════════ -->
+  <rect x="16" y="75" width="190" height="118" rx="4" fill="#0F1520" stroke="#1E2D45" stroke-width="1"/>
+  <text x="26" y="92" font-family="Arial" font-size="10" font-weight="bold" fill="#8899AA">Legend</text>
+  <line x1="16" y1="97" x2="206" y2="97" stroke="#1E2D45" stroke-width="1"/>
+
+  <!-- Inheritance -->
+  <line x1="26" y1="112" x2="66" y2="112" stroke="#00C851" stroke-width="1.5" stroke-dasharray="7,3" marker-end="url(#hollow)"/>
+  <text x="72" y="116" font-family="Arial" font-size="9" fill="#8899AA">Inheritance</text>
+
+  <!-- Dependency -->
+  <line x1="26" y1="130" x2="66" y2="130" stroke="#4A6070" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="72" y="134" font-family="Arial" font-size="9" fill="#8899AA">Dependency (uses)</text>
+
+  <!-- Class box -->
+  <rect x="26" y="145" width="22" height="11" rx="2" fill="#141C2B" stroke="#00D4FF" stroke-width="1.5"/>
+  <text x="54" y="155" font-family="Arial" font-size="9" fill="#8899AA">Class / Service</text>
+
+  <!-- Enum box -->
+  <rect x="26" y="162" width="22" height="11" rx="2" fill="#0A1230" stroke="#3B8BFF" stroke-width="1.5"/>
+  <text x="54" y="172" font-family="Arial" font-size="9" fill="#8899AA">Enum</text>
+
+  <!-- Exception box -->
+  <rect x="26" y="179" width="22" height="11" rx="2" fill="#1A0808" stroke="#FF3B3B" stroke-width="1"/>
+  <text x="54" y="189" font-family="Arial" font-size="9" fill="#8899AA">Exception</text>
+</svg>
